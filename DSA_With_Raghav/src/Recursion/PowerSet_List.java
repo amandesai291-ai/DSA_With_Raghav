@@ -36,6 +36,4 @@ public class PowerSet_List {
 	        subSet(ans, nums, i + 1, list);
 	    
 	}
-
-
 }
