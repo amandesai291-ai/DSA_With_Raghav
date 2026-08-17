@@ -1,5 +1,6 @@
 package Linked_List;
 
+// 19 160 1721 237
 class LinkedList
 {
 	Node head;
@@ -151,12 +152,43 @@ class LinkedList
 			slow.next = slow.next.next;	
 			size--;
 		}
-			
-			
-			
+				
 	}
 	
+	int getKthFromLast(int k)
+	{
+		Node slow = head;
+		Node fast = head;
+		
+		for(int i = 1; i<=k; i++)
+		{
+			fast = fast.next;
+		}
+		while(fast != null)
+		{
+			slow = slow.next;
+			fast = fast.next;
+		}
+//		System.out.println(slow.val);
+		return slow.val;
+	}
 	
+	void removekthELe(int k)
+	{
+		Node slow = head;
+		Node fast = head;
+		
+		for(int i = 1; i<=k; i++)
+		{
+			fast = fast.next;
+		}
+		while(fast.next != null)
+		{
+			slow = slow.next;
+			fast = fast.next;
+		}
+		slow.next = slow.next.next;
+	}
 }
 
 public class LinkedListDataStructure {
@@ -165,16 +197,16 @@ public class LinkedListDataStructure {
 		
 		LinkedList ll = new LinkedList();
 		 
-		ll.deleteAtHead();
+//		ll.deleteAtHead();
 		ll.addAtTail(10);
 		ll.addAtTail(20);
 		ll.addAtTail(30);
 		ll.addAtTail(40);
-		ll.addAtHead(50);
-		ll.addAtHead(60);
-		ll.addAtHead(70);
-		ll.display();
-		ll.deleteAtHead();
+		ll.addAtTail(50);
+//		ll.addAtHead(60);
+//		ll.addAtHead(70);
+//		ll.display();
+//		ll.deleteAtHead();
 //		ll.deleteAtHead();
 //		ll.deleteAtHead();
 		ll.display();
@@ -182,11 +214,16 @@ public class LinkedListDataStructure {
 //		System.out.println(ll.get(2));
 //		ll.insert(45 , 2);
 //		ll.display();
-		ll.getMiddle();
+//		ll.getMiddle();
 //		System.out.println(ll.size);ll.display();
+//		ll.display();
+//		ll.delMiddle();
+		System.out.println(ll.getKthFromLast(2));
 		ll.display();
-		ll.delMiddle();
-		System.out.println(ll.size);ll.display();
+		ll.removekthELe(2);
+		ll.display();
 		
 	}
 }
+
+
